@@ -30,4 +30,13 @@ class Spaceship extends Floater
   		xCorners[2] = -8;
   		yCorners[2] = 8;
   	}
+
+  	public void show()
+  	{
+  		background(197);
+  		line(xCorners[0],yCorners[0],xCorners[1],yCorners[1]);
+  		line(xCorners[1],yCorners[1],xCorners[2],yCorners[2]);
+  		line(xCorners[2],yCorners[2],xCorners[0],yCorners[0]);
+
+  	}
 }

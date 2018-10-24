@@ -6,6 +6,13 @@ public void setup()
 }
 public void draw() 
 {
-	Floater.show();
+	bob.show();
 }
 
+public void keyPressed()
+{
+	if (key == 'w')
+	{
+		
+	}
+}
