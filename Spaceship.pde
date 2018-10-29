@@ -19,8 +19,8 @@ class Spaceship extends Floater
 		setDirectionX(0);
 		setDirectionY(0);
 		setPointDirection(0);
-		myColor = color((int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256));
-		corners = 3;
+		myColor = color(255,255,255);
+    corners = 3;
   	xCorners = new int[corners];
   	yCorners = new int[corners];
   	xCorners[0] = -8;
