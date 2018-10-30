@@ -11,6 +11,7 @@ public class Star //note that this class does NOT extend Floater
 	}
 	public void draw()
 	{
+		noStroke();
 		fill(myoColor);
 		ellipse(myX,myY,5,5);
 	}
