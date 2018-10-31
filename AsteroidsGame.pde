@@ -26,7 +26,7 @@ public void keyPressed()
 {
 	if (key == 'w')
 	{			
-		bob.accelerate(1);
+		bob.accelerate(.1);
 		
 	}
 	else if (key == 'a')
@@ -46,6 +46,7 @@ public void keyPressed()
 		bob.setDirectionY(0);
 		bob.setY((int)(Math.random()*801));
 		bob.setX((int)(Math.random()*801));
+		bob.setPointDirection((int)(Math.random() * 361));
 	}
 	
 }
