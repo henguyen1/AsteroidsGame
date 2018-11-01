@@ -1,5 +1,6 @@
 Spaceship bob;
 Star [] bunchstars;
+Asteroid[] bunchAster;
 public void setup() 
 {
 	bob = new Spaceship();
@@ -9,6 +10,12 @@ public void setup()
 	{
 		bunchstars[i] = new Star();
 	}
+	bunchAster = new Asteroid[20];
+	for (int i = 0; i < bunchAster.length; i++)
+	{
+		bunchAster[i] = new Asteroid();
+	}
+
 }
 public void draw() 
 {
@@ -16,6 +23,11 @@ public void draw()
 	for (int i =0;i< bunchstars.length;i++)
 	{
 		bunchstars[i].draw();
+	}
+	for (int i =0;i< bunchAster.length;i++) //FIX THIS ITS "WALK ROTATING"
+	{
+		bunchAster[i].show();
+		bunchAster[i].turn((int)(Math.random()*5)-2);
 	}
 	
 	bob.show();

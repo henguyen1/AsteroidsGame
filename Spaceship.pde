@@ -12,7 +12,7 @@ class Spaceship extends Floater
   public double getPointDirection(){return (double)myPointDirection;} 
 
 
-	Spaceship()
+	public Spaceship()
 	{
 		setX(400);
 		setY(400);
