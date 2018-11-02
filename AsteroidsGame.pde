@@ -24,10 +24,10 @@ public void draw()
 	{
 		bunchstars[i].draw();
 	}
-	for (int i =0;i< bunchAster.length;i++) //FIX THIS ITS "WALK ROTATING"
+	for (int i =0;i< bunchAster.length;i++) 
 	{
 		bunchAster[i].show();
-		bunchAster[i].turn((int)(Math.random()*5)-2);
+		bunchAster[i].move();
 	}
 	
 	bob.show();
@@ -38,7 +38,7 @@ public void keyPressed()
 {
 	if (key == 'w')
 	{			
-		bob.accelerate(.1);
+		bob.accelerate(1);
 		
 	}
 	else if (key == 'a')

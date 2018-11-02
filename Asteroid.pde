@@ -10,15 +10,25 @@ public class Asteroid extends Floater
   	public double getDirectionY(){return (double)myDirectionY;}   
   	public void setPointDirection(int degrees){myPointDirection = degrees;}   
   	public double getPointDirection(){return (double)myPointDirection;} 
+  	private int rotSpeed;
+  	public int getrotSpeed(){return rotSpeed;}
 
   	public Asteroid()
   	{
+  		if (Math.random() > .5)
+  		{
+  			rotSpeed = (int)(Math.random()*5)+1;
+  		}
+  		else 
+  		{
+  			rotSpeed = (int)(Math.random()*(-5))-1;
+  		}
   		setX((int)(Math.random()*801));
   		setY((int)(Math.random()*801));
   		setDirectionX(0);
 		setDirectionY(0);
-		setPointDirection(0);
-		myColor = color(255,255,255);
+		setPointDirection((int)(Math.random()*361));
+		myColor = color(148,148,148);
 		corners = 9;
 		xCorners = new int[corners];
   		yCorners = new int[corners];
@@ -46,7 +56,8 @@ public class Asteroid extends Floater
   		//change the x and y coordinates by myDirectionX and myDirectionY       
     	myCenterX += myDirectionX;    
     	myCenterY += myDirectionY;   
-
+    	turn(getrotSpeed());
+    	accelerate(.5);
     	//wrap around screen    
     	if(myCenterX >width)
     	{     
