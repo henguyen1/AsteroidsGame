@@ -29,10 +29,10 @@ public class Asteroid extends Floater
 		setDirectionY(0);
 		setPointDirection((int)(Math.random()*361));
 		myColor = color(148,148,148);
-		corners = 9;
+		corners = 4;
 		xCorners = new int[corners];
   		yCorners = new int[corners];
-  		xCorners[0] = -9;
+  		/*xCorners[0] = -9;
   		yCorners[0] = 8;
   		xCorners[1] = 0;
   		yCorners[1] = 8;
@@ -49,32 +49,19 @@ public class Asteroid extends Floater
   		xCorners[7] = -3;
   		yCorners[7] = -8;
   		xCorners[8] = -8;
-  		yCorners[8] = 3;
+  		yCorners[8] = 3;*/
+  		xCorners[0] = -8;
+  		yCorners[0] = -8;
+  		xCorners[1] = 8;
+  		yCorners[1] = -8;
+  		xCorners[2] = 8;
+  		yCorners[2] = 8;
+  		xCorners[3] = -8;
+  		yCorners[3] = 8;
   	}
   	public void move()
-  	{
-  		//change the x and y coordinates by myDirectionX and myDirectionY       
-    	myCenterX += myDirectionX;    
-    	myCenterY += myDirectionY;   
+  	{  
     	turn(getrotSpeed());
-    	accelerate(.5);
-    	//wrap around screen    
-    	if(myCenterX >width)
-    	{     
-      		myCenterX = 0;    
-    	}    
-    	else if (myCenterX<0)
-    	{     
-      		myCenterX = width;    
-    	}    
-    	if(myCenterY >height)
-    	{    
-     		myCenterY = 0;    
-    	} 
-    
-    	else if (myCenterY < 0)
-    	{     
-      		myCenterY = height;    
-    	}  
+    	super.move();
   	}
 }

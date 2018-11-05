@@ -14,7 +14,9 @@ public void setup()
 	for (int i = 0; i < bunchAster.length; i++)
 	{
 		bunchAster[i] = new Asteroid();
+		bunchAster[i].accelerate(1);
 	}
+
 
 }
 public void draw() 
@@ -32,6 +34,9 @@ public void draw()
 	
 	bob.show();
 	bob.move();
+
+	//somehow make asteroid dheck for collision for example if a point on the asteroid changes to the color of the spaceship thats a collision
+
 }
 
 public void keyPressed()
