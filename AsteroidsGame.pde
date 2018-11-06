@@ -8,7 +8,7 @@ public void setup()
 	bunchstars = new Star[1000];
 	for (int i = 0;  i <bunchstars.length;i++)
 	{
-		bunchstars[i] = new Star();
+		bunchstars[i]= new Star();
 	}
 	bunchAster = new Asteroid[20];
 	for (int i = 0; i < bunchAster.length; i++)
@@ -16,8 +16,6 @@ public void setup()
 		bunchAster[i] = new Asteroid();
 		bunchAster[i].accelerate(1);
 	}
-
-
 }
 public void draw() 
 {
@@ -31,31 +29,31 @@ public void draw()
 		bunchAster[i].show();
 		bunchAster[i].move();
 	}
-	
 	bob.show();
 	bob.move();
-
-	//somehow make asteroid dheck for collision for example if a point on the asteroid changes to the color of the spaceship thats a collision
-
+	for (int i = 0; i < bunchAster.length; i++)
+	{
+		float distance = dist(bunchAster[i].getX(),bunchAster[i].getY(),bob.getX(),bob.getY());
+		if (distance <= 20)
+		{
+			//Add code here for effect on collision
+		}
+	}
+	
 }
-
 public void keyPressed()
 {
 	if (key == 'w')
 	{			
 		bob.accelerate(1);
-		
 	}
 	else if (key == 'a')
 	{
 		bob.turn(-10);
-		
-		
 	}
 	else if (key == 'd')
 	{
 		bob.turn(10);
-		
 	}
 	else if (key == 'h')
 	{
@@ -65,5 +63,4 @@ public void keyPressed()
 		bob.setX((int)(Math.random()*801));
 		bob.setPointDirection((int)(Math.random() * 361));
 	}
-	
 }

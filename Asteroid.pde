@@ -64,4 +64,5 @@ public class Asteroid extends Floater
     	turn(getrotSpeed());
     	super.move();
   	}
+  	
 }
