@@ -1,51 +1,36 @@
 Spaceship bob;
 Star [] bunchstars;
-//ArrayList <Asteroid> bunchAster;
-Asteroid[] bunchAster; //Asteroid
+ArrayList <Asteroid> bunchAster;
 public void setup() 
 {
-	
+	bunchAster = new ArrayList <Asteroid>();
 	bob = new Spaceship();
 	size(800,800); 
 	bunchstars = new Star[1000];
 	for (int i = 0;  i <bunchstars.length;i++)
 	{
-		bunchstars[i]= new Star();
+		bunchstars[i] = new Star();
 	}
-	bunchAster = new Asteroid[20]; //Asteroid
-	for (int i = 0; i < bunchAster.length; i++)
-	{
-		bunchAster[i] = new Asteroid();
-		bunchAster[i].accelerate(1);
-	}
+	
 }
 public void draw() 
 {
-	//bunchAster = new ArrayList <Asteroid>();
-	//Asteroid sue = new Asteroid();
-	//bunchAster.add(sue);
-	//System.out.println(bunchAster.size());
 	background(0);
+	for (int i = 0; i < 500; i++) //set asteroid positions to random cus rn they r all in one spot
+	{
+		bunchAster.add(new Asteroid());
+		Asteroid aster = bunchAster.get(0);
+		aster.show();
+		aster.move();
+	}
+
 	for (int i =0;i< bunchstars.length;i++)
 	{
 		bunchstars[i].draw();
 	}
-	for (int i =0;i< bunchAster.length;i++) //Asteroid
-	{
-		bunchAster[i].show();
-		bunchAster[i].move();
-	}
+	
 	bob.show();
 	bob.move();
-	for (int i = 0; i < bunchAster.length; i++)
-	{
-		float distance = dist(bunchAster[i].getX(),bunchAster[i].getY(),bob.getX(),bob.getY());
-		if (distance <= 20)
-		{
-			//Add code here for effect on collision
-		}
-	}
-	
 }
 public void keyPressed()
 {
