@@ -16,19 +16,20 @@ public void setup()
 public void draw() 
 {
 	background(0);
-	for (int i = 0; i < 500; i++) //set asteroid positions to random cus rn they r all in one spot
+	for (int i = 0; i < 50; i++) 
 	{
 		bunchAster.add(new Asteroid());
-		Asteroid aster = bunchAster.get(0);
+		Asteroid aster = bunchAster.get(0 + i);
 		aster.show();
+		
 		aster.move();
-	}
+		System.out.println(aster.getPointDirection());
 
+	}
 	for (int i =0;i< bunchstars.length;i++)
 	{
 		bunchstars[i].draw();
-	}
-	
+	}	
 	bob.show();
 	bob.move();
 }
