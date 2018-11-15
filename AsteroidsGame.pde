@@ -16,16 +16,16 @@ public void setup()
 public void draw() 
 {
 	background(0);
-	for (int i = 0; i < 50; i++) 
+	for (int i = 0; i < 20; i++) 
 	{
 		bunchAster.add(new Asteroid());
 		Asteroid aster = bunchAster.get(0 + i);
 		aster.show();
-		
+		aster.setPointDirection(aster.getastDir());
+		aster.accelerate(1); //Keeps accelerating making it go super fast make it stop
 		aster.move();
-		System.out.println(aster.getPointDirection());
-
 	}
+	
 	for (int i =0;i< bunchstars.length;i++)
 	{
 		bunchstars[i].draw();
