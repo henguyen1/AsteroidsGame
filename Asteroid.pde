@@ -12,8 +12,6 @@ public class Asteroid extends Floater
   public double getPointDirection(){return (double)myPointDirection;} 
   private int rotSpeed;
   public int getrotSpeed(){return rotSpeed;}
-  private int astDir;
-  public int getastDir(){return astDir;}
 
   public Asteroid()
   {
@@ -27,9 +25,8 @@ public class Asteroid extends Floater
   	}
   	setX((int)(Math.random()*801));
   	setY((int)(Math.random()*801));
-    setDirectionX(0);
-    setDirectionY(0);
-		astDir = (int)(Math.random()*361);
+    setDirectionX((int)(Math.random()*2));
+    setDirectionY((int)(Math.random()*2));
 		myColor = color(148,148,148);
 		corners = 4;
 		xCorners = new int[corners];

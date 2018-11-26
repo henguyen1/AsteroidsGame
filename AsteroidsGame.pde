@@ -16,17 +16,15 @@ public void setup()
 public void draw() 
 {
 	background(0);
-	for (int i = 0; i < 20; i++) 
+	for (int i = 0; i < 20; i++) //some asteroids r not moving...
 	{
 		bunchAster.add(new Asteroid());
-		Asteroid aster = bunchAster.get(0 + i);
+		Asteroid aster = bunchAster.get(i);
 		aster.show();
-		aster.setPointDirection(aster.getastDir());
-		aster.accelerate(1); //Keeps accelerating making it go super fast make it stop
 		aster.move();
 	}
 	
-	for (int i =0;i< bunchstars.length;i++)
+	for (int i = 0;i< bunchstars.length;i++)
 	{
 		bunchstars[i].draw();
 	}	
@@ -37,7 +35,7 @@ public void keyPressed()
 {
 	if (key == 'w')
 	{			
-		bob.accelerate(1);
+		bob.accelerate(0.5);
 	}
 	else if (key == 'a')
 	{
