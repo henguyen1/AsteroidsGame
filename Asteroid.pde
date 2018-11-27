@@ -25,13 +25,13 @@ public class Asteroid extends Floater
   	}
   	setX((int)(Math.random()*801));
   	setY((int)(Math.random()*801));
-    setDirectionX((int)(Math.random()*2));
-    setDirectionY((int)(Math.random()*2));
+    setDirectionX((Math.random()*5) - 2);
+    setDirectionY((Math.random()*5) - 2);
 		myColor = color(148,148,148);
-		corners = 4;
+		corners = 9;
 		xCorners = new int[corners];
   	yCorners = new int[corners];
-  	/*xCorners[0] = -9;
+  	xCorners[0] = -9;
   	yCorners[0] = 8;
   	xCorners[1] = 0;
   	yCorners[1] = 8;
@@ -48,15 +48,7 @@ public class Asteroid extends Floater
   	xCorners[7] = -3;
   	yCorners[7] = -8;
   	xCorners[8] = -8;
-  	yCorners[8] = 3;*/
-  	xCorners[0] = -8;
-  	yCorners[0] = -8;
-  	xCorners[1] = 8;
-  	yCorners[1] = -8;
-  	xCorners[2] = 8;
-  	yCorners[2] = 8;
-  	xCorners[3] = -8;
-  	yCorners[3] = 8;
+  	yCorners[8] = 3;
   }
   public void move()
   {  
