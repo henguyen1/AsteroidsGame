@@ -22,15 +22,15 @@ public void draw()
 		Asteroid aster = bunchAster.get(i);
 		aster.show();
 		aster.move();
-		
 	}
 	bob.show();
 	bob.move();
 	for (int i = 0; i <= bunchAster.size()-1 ;i++)
 	{
-		if (dist(bunchAster.get(i).getX(),bunchAster.get(i).getY(),bob,getX(),bob.getY()) < 5) //apparently getX() doesnt exist...
+		double dist = dist(bunchAster.get(i).getX(),bunchAster.get(i).getY(),bob.getX(),bob.getY());//apparently getX() doesnt exist...
+		if (dist < 20) 
 		{
-			System.out.println("hi");
+			bunchAster.remove(i);
 		}
 	}	
 	for (int i = 0;i< bunchstars.length;i++)
