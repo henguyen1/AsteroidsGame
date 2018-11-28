@@ -16,7 +16,7 @@ public void setup()
 public void draw() 
 {
 	background(0);
-	for (int i = 0; i < 20; i++) //some asteroids r not moving...
+	for (int i = 0; i < 20; i++) 
 	{
 		bunchAster.add(new Asteroid());
 		Asteroid aster = bunchAster.get(i);
@@ -27,8 +27,8 @@ public void draw()
 	bob.move();
 	for (int i = 0; i <= bunchAster.size()-1 ;i++)
 	{
-		double dist = dist(bunchAster.get(i).getX(),bunchAster.get(i).getY(),bob.getX(),bob.getY());//apparently getX() doesnt exist...
-		if (dist < 20) 
+		double dist = dist(bunchAster.get(i).getX(),bunchAster.get(i).getY(),bob.getX(),bob.getY());
+		if (dist < 15) 
 		{
 			bunchAster.remove(i);
 		}
