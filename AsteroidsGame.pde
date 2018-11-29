@@ -32,11 +32,12 @@ public void draw()
 		{
 			bunchAster.remove(i);
 		}
-	}	
+			}	
 	for (int i = 0;i< bunchstars.length;i++)
 	{
 		bunchstars[i].draw();
 	}
+
 }
 public void keyPressed()
 {
