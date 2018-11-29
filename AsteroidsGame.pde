@@ -11,11 +11,14 @@ public void setup()
 	{
 		bunchstars[i] = new Star();
 	}
-	
 }
 public void draw() 
 {
 	background(0);
+	for (int i = 0;i< bunchstars.length;i++)
+	{
+		bunchstars[i].draw();
+	}
 	for (int i = 0; i < 20; i++) 
 	{
 		bunchAster.add(new Asteroid());
@@ -32,18 +35,13 @@ public void draw()
 		{
 			bunchAster.remove(i);
 		}
-			}	
-	for (int i = 0;i< bunchstars.length;i++)
-	{
-		bunchstars[i].draw();
-	}
-
+	}	
 }
 public void keyPressed()
 {
 	if (key == 'w')
 	{			
-		bob.accelerate(0.5);
+		bob.accelerate(0.1);
 	}
 	else if (key == 'a')
 	{

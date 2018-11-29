@@ -23,8 +23,8 @@ public class Asteroid extends Floater
   	{
   		rotSpeed = (int)(Math.random()*(-5))-1;
   	}
-  	setX((int)(Math.random()*801));
-  	setY((int)(Math.random()*801));
+    setX((int)(Math.random()*801));
+    setY((int)(Math.random()*801));
     setDirectionX((Math.random()*5) - 2);
     setDirectionY((Math.random()*5) - 2);
 		myColor = color(148,148,148);
