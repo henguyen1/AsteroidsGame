@@ -28,20 +28,20 @@ public void draw()
 	}
 	bob.show();
 	bob.move();
-	/*for (int i = 0; i <= bunchAster.size()-1 ;i++) //this will see if spaceship has collided with asteroid
+	for (int i = 0; i <= bunchAster.size()-1 ;i++) //this will see if spaceship has collided with asteroid
 	{
 		double dist = dist(bunchAster.get(i).getX(),bunchAster.get(i).getY(),bob.getX(),bob.getY());
 		if (dist < 15) 
 		{
 			bunchAster.remove(i);
 		}
-	}	*/
+	}	
 }
 public void keyPressed()
 {
 	if (key == 'w')
 	{			
-		bob.accelerate(1);
+		bob.accelerate(0.1);
 	}
 	else if (key == 'a')
 	{
