@@ -32,8 +32,8 @@ public void draw()
 	bob.move();
 	for (int i = 0; i <= bunchAster.size()-1 ;i++)
 	{
-		double dist = dist(bunchAster.get(i).getX(),bunchAster.get(i).getY(),bob.getX(),bob.getY());
-		if (dist < 15) 
+		double d = dist(bunchAster.get(i).getX(),bunchAster.get(i).getY(),bob.getX(),bob.getY());
+		if (d < 15) 
 		{
 			bunchAster.remove(i);
 		}
