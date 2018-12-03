@@ -11,6 +11,10 @@ public void setup()
 	{
 		bunchstars[i] = new Star();
 	}
+	for (int i = 0; i < 20; i++) 
+	{
+		bunchAster.add(new Asteroid());
+	}	
 }
 public void draw() 
 {
@@ -19,10 +23,8 @@ public void draw()
 	{
 		bunchstars[i].draw();
 	}
-	for (int i = 0; i < 20; i++) 
+	for (int i = 0; i < bunchAster.size()-1; i++) 
 	{
-		bunchAster.add(new Asteroid());
-		//Asteroid aster = bunchAster.get(i);
 		bunchAster.get(i).show();
 		bunchAster.get(i).move();
 	}
