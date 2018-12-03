@@ -22,13 +22,13 @@ public void draw()
 	for (int i = 0; i < 20; i++) 
 	{
 		bunchAster.add(new Asteroid());
-		Asteroid aster = bunchAster.get(i);
-		aster.show();
-		aster.move();
+		//Asteroid aster = bunchAster.get(i);
+		bunchAster.get(i).show();
+		bunchAster.get(i).move();
 	}
 	bob.show();
 	bob.move();
-	for (int i = 0; i <= bunchAster.size()-1 ;i++) //this will see if spaceship has collided with asteroid
+	for (int i = 0; i <= bunchAster.size()-1 ;i++)
 	{
 		double dist = dist(bunchAster.get(i).getX(),bunchAster.get(i).getY(),bob.getX(),bob.getY());
 		if (dist < 15) 
