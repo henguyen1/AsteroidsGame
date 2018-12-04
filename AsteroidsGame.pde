@@ -1,8 +1,10 @@
 Spaceship bob;
 Star [] bunchstars;
 ArrayList <Asteroid> bunchAster;
+Bullet newGuy;
 public void setup() 
 {
+	newGuy = new Bullet(bob);
 	bunchAster = new ArrayList <Asteroid>();
 	bob = new Spaceship();
 	size(800,800); 
@@ -19,6 +21,7 @@ public void setup()
 public void draw() 
 {
 	background(0);
+	newGuy.show();
 	for (int i = 0;i< bunchstars.length;i++)
 	{
 		bunchstars[i].draw();
