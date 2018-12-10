@@ -1,12 +1,12 @@
-Spaceship bob;
+Spaceship theShip;
 Star [] bunchstars;
 ArrayList <Asteroid> bunchAster;
 Bullet newGuy;
+int life;
 public void setup() 
 {
-	newGuy = new Bullet(bob);
 	bunchAster = new ArrayList <Asteroid>();
-	bob = new Spaceship();
+	theShip = new Spaceship();
 	size(800,800); 
 	bunchstars = new Star[1000];
 	for (int i = 0;  i <bunchstars.length;i++)
@@ -17,11 +17,11 @@ public void setup()
 	{
 		bunchAster.add(new Asteroid());
 	}	
+	life = 3;
 }
 public void draw() 
 {
 	background(0);
-	newGuy.show();
 	for (int i = 0;i< bunchstars.length;i++)
 	{
 		bunchstars[i].draw();
@@ -31,37 +31,61 @@ public void draw()
 		bunchAster.get(i).show();
 		bunchAster.get(i).move();
 	}
-	bob.show();
-	bob.move();
+	theShip.show();
+	theShip.move();
 	for (int i = 0; i <= bunchAster.size()-1 ;i++)
 	{
-		double d = dist(bunchAster.get(i).getX(),bunchAster.get(i).getY(),bob.getX(),bob.getY());
+		double d = dist(bunchAster.get(i).getX(),bunchAster.get(i).getY(),theShip.getX(),theShip.getY());
 		if (d < 15) 
 		{
 			bunchAster.remove(i);
+			life--;
 		}
 	}	
+	//will check if life = 0
+	if(life == 0)
+	{
+		background(0);
+		noLoop();
+	}	
+	//regulates speed so you can't go to fast
+	if (theShip.getDirectionX() > 6)
+	{
+		theShip.setDirectionX(6);
+	}
+	else if (theShip.getDirectionY() > 6)
+	{
+		theShip.setDirectionY(6);
+	}
+	else if (theShip.getDirectionX() < -6)
+	{
+		theShip.setDirectionX(-6);
+	}
+	else if (theShip.getDirectionY() < -6)
+	{
+		theShip.setDirectionY(-6);
+	}
 }
 public void keyPressed()
 {
 	if (key == 'w')
 	{			
-		bob.accelerate(0.1);
+		theShip.accelerate(1);
 	}
 	else if (key == 'a')
 	{
-		bob.turn(-10);
+		theShip.turn(-10);
 	}
 	else if (key == 'd')
 	{
-		bob.turn(10);
+		theShip.turn(10);
 	}
 	else if (key == 'h')
 	{
-		bob.setDirectionX(0);
-		bob.setDirectionY(0);
-		bob.setY((int)(Math.random()*801));
-		bob.setX((int)(Math.random()*801));
-		bob.setPointDirection((int)(Math.random() * 361));
+		theShip.setDirectionX(0);
+		theShip.setDirectionY(0);
+		theShip.setY((int)(Math.random()*801));
+		theShip.setX((int)(Math.random()*801));
+		theShip.setPointDirection((int)(Math.random() * 361));
 	}
 }
