@@ -5,6 +5,7 @@ Bullet newGuy;
 int life;
 public void setup() 
 {
+	//newGuy = new Bullet(theShip);
 	bunchAster = new ArrayList <Asteroid>();
 	theShip = new Spaceship();
 	size(800,800); 
@@ -42,10 +43,21 @@ public void draw()
 			life--;
 		}
 	}	
+	if (life > 0)
+	{
+		textSize(50);
+		fill(255);
+		text("Lives: "+ life,550,100);
+	}
 	//will check if life = 0
 	if(life == 0)
 	{
 		background(0);
+		textSize(64);
+		fill(255);
+		text("You Lost!",250,400);
+		textSize(20);
+		text("Refresh to restart",300,500);
 		noLoop();
 	}	
 	//regulates speed so you can't go to fast

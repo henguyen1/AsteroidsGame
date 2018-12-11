@@ -19,6 +19,9 @@ public class Bullet extends Floater
 		myDirectionX = 5 * Math.cos(dRadians) + theShip.getDirectionX();
 		myDirectionY = 5 * Math.sin(dRadians) + theShip.getDirectionY();
 	}
-
+	public void show()
+	{
+		ellipse((float)myCenterX,(float)myCenterY,10,10);
+	}
 	 
 }
