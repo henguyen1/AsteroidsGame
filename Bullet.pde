@@ -1,4 +1,4 @@
-public class Bullet extends Floater
+ class Bullet extends Floater
 {
 	public void setX(int x){myCenterX = x;}
 	public int getX(){return (int)myCenterX;}
@@ -21,7 +21,8 @@ public class Bullet extends Floater
 	}
 	public void show()
 	{
-		ellipse((float)myCenterX,(float)myCenterY,10,10);
+		fill(255,0,0);
+		ellipse((float)myCenterX,(float)myCenterY,5,5);
 	}
 	 
 }
