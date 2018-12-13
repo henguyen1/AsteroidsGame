@@ -3,6 +3,7 @@ Star [] bunchstars;
 ArrayList <Asteroid> bunchAster;
 ArrayList <Bullet> newGuy = new ArrayList <Bullet>();
 int life;
+int score;
 public void setup() 
 {
 	bunchAster = new ArrayList <Asteroid>();
@@ -22,22 +23,17 @@ public void setup()
 public void draw() 
 {
 	background(0);
-	for (int i = 0;i< bunchstars.length;i++)
+	for (int i = 0;i< bunchstars.length;i++) //draws stars
 	{
 		bunchstars[i].draw();
 	}
-	for (int i = 0; i < bunchAster.size()-1; i++) 
+	for (int i = 0; i < bunchAster.size()-1; i++) //draws asteroids
 	{
 		bunchAster.get(i).show();
 		bunchAster.get(i).move();
 	}
-	theShip.show();
-	for (int i = 0; i < newGuy.size()-1;i++)
-	{
-		newGuy.get(i).show();
-		newGuy.get(i).move();
-	}
-	theShip.move();
+	theShip.show();                               // draws the spaceship
+	theShip.move();								  //draws the  spaceship
 	for (int i = 0; i <= bunchAster.size()-1 ;i++) // checks for collision with ship
 	{
 		double d = dist(bunchAster.get(i).getX(),bunchAster.get(i).getY(),theShip.getX(),theShip.getY());
@@ -47,21 +43,29 @@ public void draw()
 			life--;
 		}
 	}
-	for (int i = 0; i <= newGuy.size()-1;i++)
+	for (int i = newGuy.size()-1; i >= 0;i--)      // draws the bullets
 	{
-		double a = dist(newGuy.get(i).getX(),newGuy.get(i).getY(),bunchAster.get(i).getX(),bunchAster.get(i).getY());
-		if (a < 15)
+		newGuy.get(i).show();
+		newGuy.get(i).move();
+		for (int a = bunchAster.size()-1;a >= 0;a--)
 		{
-			bunchAster.remove(i);
-			newGuy.remove(i);
-
+			double c = dist(newGuy.get(i).getX(),newGuy.get(i).getY(),bunchAster.get(a).getX(),bunchAster.get(a).getY());
+			{
+				if(c <15)
+				{
+					newGuy.remove(i);
+					bunchAster.remove(a);
+					break;
+				}
+			}
 		}
-	}	
+	}
+	
 	if (life > 0)
 	{
 		textSize(50);
 		fill(255);
-		text("Lives: "+ life,550,100);
+		text("Lives: "+ life,610,40);
 	}
 	//will check if life = 0
 	if(life == 0)
@@ -74,6 +78,12 @@ public void draw()
 		text("Refresh to restart",300,500);
 		noLoop();
 	}	
+	score = 0;
+	textSize(50);
+	fill(255);
+	text("Score: "+score,10,40);
+	fill(0);
+
 	//regulates speed so you can't go to fast
 	if (theShip.getDirectionX() > 6)
 	{
@@ -118,4 +128,14 @@ public void keyPressed()
 	{
 		newGuy.add(new Bullet(theShip));
 	}
+	//cheat to remove all asteroids
+	if (key== 'p')
+	{
+		for(int i = 0; i < bunchAster.size()-1;i++)
+		{
+			bunchAster.remove(i);
+		}
+
+	}
 }
+		

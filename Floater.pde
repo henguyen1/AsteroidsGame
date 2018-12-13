@@ -38,8 +38,8 @@ abstract class Floater //Do NOT modify the Floater class! Make changes in the Sp
     //change the x and y coordinates by myDirectionX and myDirectionY       
     myCenterX += myDirectionX;    
     myCenterY += myDirectionY;  
-      
 
+    
     //wrap around screen    
     if(myCenterX >width)
     {     
