@@ -2,10 +2,12 @@ Spaceship theShip;
 Star [] bunchstars;
 ArrayList <Asteroid> bunchAster;
 ArrayList <Bullet> newGuy = new ArrayList <Bullet>();
-int life;
-int score;
+int life; // how much health you have
+int score; // the score obviously
+int more = 0; //adds more asteroids as you clear every batch 
 public void setup() 
 {
+	score = 0;
 	bunchAster = new ArrayList <Asteroid>();
 	theShip = new Spaceship();
 	size(800,800); 
@@ -53,6 +55,7 @@ public void draw()
 			{
 				if(c <15)
 				{
+					score += 10;
 					newGuy.remove(i);
 					bunchAster.remove(a);
 					break;
@@ -78,12 +81,21 @@ public void draw()
 		text("Refresh to restart",300,500);
 		noLoop();
 	}	
-	score = 0;
+	//displays score
 	textSize(50);
 	fill(255);
 	text("Score: "+score,10,40);
 	fill(0);
-
+	
+	//checks to see if all asteoids have been cleared to spawn more so you can never win...
+	if(bunchAster.size()-1 == 0)
+	{
+		for (int i = 0; i < 20 * more; i++) 
+		{
+			bunchAster.add(new Asteroid());
+		}
+		more +=1;
+	}
 	//regulates speed so you can't go to fast
 	if (theShip.getDirectionX() > 6)
 	{
